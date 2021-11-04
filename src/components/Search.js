@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyle = makeStyles({
   wrapper: {
-    margin: 80
+    margin: 80,
   },
   wrappermini: {
-    display: 'flex'
+    display: 'flex',
   },
 
   input: {
@@ -18,37 +18,37 @@ const useStyle = makeStyles({
     color: 'white',
     height: 48,
     padding: '0 30px',
-    borderStyle: 'none'
-  }
+    borderStyle: 'none',
+  },
 });
-export const Search = props => {
+export const Search = (props) => {
   const { checkValue, inputValue } = props;
   const classes = useStyle();
-  const [input, setInput] = React.useState('');
+  /* const [input, setInput] = React.useState('');
   const [check, setCheck] = React.useState(false);
   const handleFormSubmit = e => {
     e.preventDefault();
     checkValue(check);
     inputValue(input);
-  };
+  }; */
   return (
     <div className={classes.wrapper}>
-      <form onSubmit={handleFormSubmit}>
-        <Input
-          className={classes.input}
-          color="primary"
-          placeholder="Search..."
-          onChange={e => setInput(e.target.value)}
-        />
+      {/*  <form onSubmit={handleFormSubmit}> */}
+      <Input
+        className={classes.input}
+        color="primary"
+        placeholder="Search..."
+        onChange={(e) => inputValue(e.target.value)}
+      />
 
-        <div className={classes.wrappermini}>
-          <Checkbox
-            color="primary"
-            onChange={e => setCheck(e.target.checked)}
-          />
-          <Typography variant="h6">Only show products in stock</Typography>
-        </div>
-        <Button
+      <div className={classes.wrappermini}>
+        <Checkbox
+          color="primary"
+          onChange={(e) => checkValue(e.target.checked)}
+        />
+        <Typography variant="h6">Only show products in stock</Typography>
+      </div>
+      {/* <Button
           type="submit"
           color="secondary"
           variant="contained"
@@ -56,7 +56,7 @@ export const Search = props => {
         >
           Search
         </Button>
-      </form>
+      </form> */}
     </div>
   );
 };

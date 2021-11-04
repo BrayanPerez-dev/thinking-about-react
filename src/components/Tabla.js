@@ -6,7 +6,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Paper
+  Paper,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ProductRow from './ProductRow';
@@ -14,19 +14,19 @@ import ProductCategoryRow from './ProductCategoryRow';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 300
+    minWidth: 300,
   },
   divTabla: {
-    padding: 50
-  }
+    padding: 50,
+  },
 });
 export const Tabla = ({ data, filterText, inStockOnly }) => {
   const classes = useStyles();
   const rows = [];
   let lastCategory = null;
-  data.forEach(product => {
+  data.forEach((product) => {
     if (
-      product.name.indexOf(filterText) === -1 &&
+      product.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1 &&
       product.price.indexOf(filterText) === -1
     ) {
       return;
